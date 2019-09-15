@@ -10,7 +10,8 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            GravarUsandoAdoNet();
+            //GravarUsandoAdoNet();
+            GravarUsandoEntity();
         }
 
         private static void GravarUsandoAdoNet()
@@ -25,5 +26,28 @@ namespace Alura.Loja.Testes.ConsoleApp
                 repo.Adicionar(p);
             }
         }
+
+        private static void GravarUsandoEntity()
+        {
+            //Produto p = new Produto();
+            //p.Nome = "Harry Potter e a Ordem da Fênix";
+            //p.Categoria = "Livros";
+            //p.Preco = 19.89;
+
+            //using (var repo = new ProdutoDAO())
+            //{
+            //    repo.Adicionar(p);
+            //}
+
+            Professor professor = new Professor();
+            professor.Nome = "Victor";
+            professor.cpf = "123.456.789-0";
+            
+            using (var contexto =  new LojaContext())
+            {
+                contexto.Adicionar(professor);
+            }
+        }
     }
+
 }
