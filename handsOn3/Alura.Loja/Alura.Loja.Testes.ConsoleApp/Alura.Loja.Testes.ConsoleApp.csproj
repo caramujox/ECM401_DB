@@ -125,10 +125,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LojaContext.cs" />
+    <Compile Include="IProfessorDAO.cs" />
+    <Compile Include="LecionaContext.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="ProdutoDAO.cs" />
     <Compile Include="Professor.cs" />
+    <Compile Include="ProfessorDAO.cs" />
+    <Compile Include="ProfessorDAOEntity.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

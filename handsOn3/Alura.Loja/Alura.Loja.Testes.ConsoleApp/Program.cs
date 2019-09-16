@@ -11,7 +11,9 @@ namespace Alura.Loja.Testes.ConsoleApp
         static void Main(string[] args)
         {
             //GravarUsandoAdoNet();
-            GravarUsandoEntity();
+            //GravarUsandoEntity();
+
+            RecuperaProfessores();
         }
 
         private static void GravarUsandoAdoNet()
@@ -29,24 +31,55 @@ namespace Alura.Loja.Testes.ConsoleApp
 
         private static void GravarUsandoEntity()
         {
-            //Produto p = new Produto();
-            //p.Nome = "Harry Potter e a Ordem da Fênix";
-            //p.Categoria = "Livros";
-            //p.Preco = 19.89;
-
-            //using (var repo = new ProdutoDAO())
-            //{
-            //    repo.Adicionar(p);
-            //}
-
             Professor professor = new Professor();
+            professor.Id = 1;
             professor.Nome = "Victor";
             professor.cpf = "123.456.789-0";
             
-            using (var contexto =  new LojaContext())
+            using (var contexto =  new ProfessorDAOEntity())
             {
-                contexto.Adicionar(professor);
+                contexto.Professores.Add(professor);
+                contexto.SaveChanges();
             }
+        }
+
+        private static void RecuperaProfessores()
+        {
+            using (var repo = new ProfessorDAOEntity())
+            {
+                IList<Professor> professores = repo.Professores.ToList();
+                foreach(var professor in professores)
+                {
+                    Console.WriteLine("Id: " + professor.Id + " Nome:" + professor.Nome + " CPF:" + professor.cpf);
+                }
+            }
+        }
+
+        private static void DeletarProfessores()
+        {
+            using (var repo = new ProfessorDAOEntity())
+            {
+                IList<Professor> professores = repo.Professores.ToList();
+                Console.WriteLine("Foram encontrados {0} professores", professores.Count);
+                foreach(var professor in professores)
+                {
+                    repo.Professores.Remove(professor);
+                }
+
+                repo.SaveChanges();
+            }
+        }
+
+        private static void AlterarProfessor()
+        {
+            using (var repo = new ProfessorDAOEntity())
+            {
+                Professor professor = repo.Professores.First();
+                professor.Nome = "Vitão";
+                repo.Professores.Update(professor);
+                repo.SaveChanges();
+            }
+            RecuperaProfessores();
         }
     }
 
