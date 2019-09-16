@@ -10,10 +10,27 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //GravarUsandoAdoNet();
-            //GravarUsandoEntity();
+            using (var contexto = new LecionaContext())
+            {
+                //var disciplinaDB = new Disciplina();
+                //disciplinaDB.CodigoDisciplina = "ECM401";
+                //disciplinaDB.Nome = "DB";
+                //disciplinaDB.Id = 1;
 
-            RecuperaProfessores();
+                //var disciplinaControle = new Disciplina();
+                //disciplinaControle.CodigoDisciplina = "ECM301";
+                //disciplinaControle.Nome = "Controle";
+                //disciplinaControle.Id = 2;
+
+
+
+                var professores = contexto.Professores.ToList();
+                foreach( var professor in professores)
+                {
+                    Console.WriteLine(professor);
+                }
+            }
+
         }
 
         private static void GravarUsandoAdoNet()
@@ -38,8 +55,7 @@ namespace Alura.Loja.Testes.ConsoleApp
             
             using (var contexto =  new ProfessorDAOEntity())
             {
-                contexto.Professores.Add(professor);
-                contexto.SaveChanges();
+                contexto.Adicionar(professor);
             }
         }
 
@@ -47,7 +63,7 @@ namespace Alura.Loja.Testes.ConsoleApp
         {
             using (var repo = new ProfessorDAOEntity())
             {
-                IList<Professor> professores = repo.Professores.ToList();
+                IList<Professor> professores = repo.Professores();
                 foreach(var professor in professores)
                 {
                     Console.WriteLine("Id: " + professor.Id + " Nome:" + professor.Nome + " CPF:" + professor.cpf);
@@ -59,14 +75,10 @@ namespace Alura.Loja.Testes.ConsoleApp
         {
             using (var repo = new ProfessorDAOEntity())
             {
-                IList<Professor> professores = repo.Professores.ToList();
+                IList<Professor> professores = repo.Professores();
                 Console.WriteLine("Foram encontrados {0} professores", professores.Count);
-                foreach(var professor in professores)
-                {
-                    repo.Professores.Remove(professor);
-                }
 
-                repo.SaveChanges();
+
             }
         }
 
@@ -74,10 +86,9 @@ namespace Alura.Loja.Testes.ConsoleApp
         {
             using (var repo = new ProfessorDAOEntity())
             {
-                Professor professor = repo.Professores.First();
+                Professor professor = repo.Professores().First();
                 professor.Nome = "Vitão";
-                repo.Professores.Update(professor);
-                repo.SaveChanges();
+                repo.Atualizar(professor);
             }
             RecuperaProfessores();
         }

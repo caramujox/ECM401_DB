@@ -161,3 +161,5 @@ C:\Users\1511 IRON\Desktop\Maua\Regulares\Banco_de_Dados_DB\ECM401_DB\handsOn3\A
 C:\Users\1511 IRON\Desktop\Maua\Regulares\Banco_de_Dados_DB\ECM401_DB\handsOn3\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.csproj.CopyComplete
 C:\Users\1511 IRON\Desktop\Maua\Regulares\Banco_de_Dados_DB\ECM401_DB\handsOn3\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.exe
 C:\Users\1511 IRON\Desktop\Maua\Regulares\Banco_de_Dados_DB\ECM401_DB\handsOn3\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.pdb
+C:\Users\1511 IRON\Desktop\Maua\Regulares\Banco_de_Dados_DB\ECM401_DB\handsOn3\Alura.Loja\Alura.Loja.Testes.ConsoleApp\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\1511 IRON\Desktop\Maua\Regulares\Banco_de_Dados_DB\ECM401_DB\handsOn3\Alura.Loja\Alura.Loja.Testes.ConsoleApp\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
